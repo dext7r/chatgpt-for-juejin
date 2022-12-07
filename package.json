@@ -1,0 +1,80 @@
+{
+  "name": "chatgpt-for-juejin",
+  "version": "1.0.0",
+  "description": "This is a ChatGPt-based juejin group plugin",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.js -w",
+    "prepare": "husky install",
+    "prettier": "prettier --write \"**/*.{js}\"",
+    "eslint": "npx eslint --cache --fix --ext .js,.jsx,.ts,.tsx ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dext7r/chatgpt-for-juejin.git"
+  },
+  "keywords": [
+    "h7ml",
+    "openai",
+    "openai-node",
+    "openai-chat",
+    "openai-node-chat",
+    "chatgpt",
+    "chatgpt-for-juejin",
+    "chatgpt-for-juejin-chrome"
+  ],
+  "author": "h7ml <h7ml@qq.com>",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/dext7r/chatgpt-for-juejin/blob/main/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/dext7r/chatgpt-for-juejin/issues"
+  },
+  "homepage": "https://github.com/dext7r/chatgpt-for-juejin#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "@babel/core": "^7.19.6",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.10",
+    "@web/rollup-plugin-copy": "^0.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.2.3",
+    "rollup-plugin-swc3": "^0.6.0",
+    "@dext7r/cz-config": "^1.0.4",
+    "@dext7r/eslint-config": "^1.0.0",
+    "@dext7r/prettier": "^0.0.9",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "cz-customizable": "^6.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prettier": "prettier",
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "volta": {
+    "node": "16.18.0"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}
